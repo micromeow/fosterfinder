@@ -1,0 +1,40 @@
+{/* Introduction.mdx */}
+
+import { Meta, Source } from "@storybook/blocks";
+
+<Meta label="Testing" />
+
+<h1>Testing</h1>
+
+Each component should at minimum have a snapshot test. This ensures that the
+component is rendered correctly and that it doesn't change unexpectedly. To
+run the tests, run the following command:
+
+<Source code={`npm test`} />
+
+<h2>Creating a test</h2>
+
+You may use the following command to generate a test and storybook file for a component:
+
+<Source code={`npm run codegen`} />
+
+Or you may do it manually:
+
+<Source code={`
+import * as stories from "./Button.stories";
+import { render } from "@testing-library/react";
+import { composeStories } from "@storybook/react";
+
+const asyncButtonStories = composeStories(stories);
+
+const testCases = Object.values(asyncButtonStories).map((Story) => [
+	// The ! is necessary in Typescript only, as the property is part of a partial type
+	Story.storyName!,
+	Story,
+]);
+
+test.each(testCases)("Renders %s story", async (\_storyName, Story) => {
+	const tree = await render(<Story />);
+	expect(tree.baseElement).toMatchSnapshot();
+});
+`}/>

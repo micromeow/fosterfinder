@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Renders Primary story 1`] = `
+<body>
+  <div>
+    <label
+      class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+    >
+      This is a label
+    </label>
+  </div>
+</body>
+`;

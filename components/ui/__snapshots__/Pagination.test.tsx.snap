@@ -1,0 +1,79 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Renders Primary story 1`] = `
+<body>
+  <div>
+    <div
+      class="flex flex-row items-center gap-2"
+    >
+      <button
+        class="inline-flex items-center justify-center rounded-md text-sm font-medium ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 hover:-translate-y-0.5 transition hover:bg-muted h-10 py-2 px-2 trans"
+        disabled=""
+      >
+        <svg
+          class="lucide lucide-chevron-left"
+          fill="none"
+          height="24"
+          stroke="currentColor"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          viewBox="0 0 24 24"
+          width="24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <polyline
+            points="15 18 9 12 15 6"
+          />
+        </svg>
+      </button>
+      <button
+        class="inline-flex items-center justify-center rounded-md text-sm font-medium ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 hover:-translate-y-0.5 transition bg-primary text-primary-foreground h-10 px-4 py-2"
+        disabled=""
+      >
+        1
+      </button>
+      <button
+        class="inline-flex items-center justify-center rounded-md text-sm font-medium ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 hover:-translate-y-0.5 transition bg-primary text-primary-foreground h-10 px-4 py-2"
+      >
+        2
+      </button>
+      <button
+        class="inline-flex items-center justify-center rounded-md text-sm font-medium ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 hover:-translate-y-0.5 transition bg-primary text-primary-foreground h-10 px-4 py-2"
+      >
+        3
+      </button>
+      <button
+        class="inline-flex items-center justify-center rounded-md text-sm font-medium ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 hover:-translate-y-0.5 transition bg-primary text-primary-foreground h-10 px-4 py-2"
+      >
+        4
+      </button>
+      <button
+        class="inline-flex items-center justify-center rounded-md text-sm font-medium ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 hover:-translate-y-0.5 transition bg-primary text-primary-foreground h-10 px-4 py-2"
+      >
+        5
+      </button>
+      <button
+        class="inline-flex items-center justify-center rounded-md text-sm font-medium ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 hover:-translate-y-0.5 transition hover:bg-muted h-10 py-2 px-2 trans"
+      >
+        <svg
+          class="lucide lucide-chevron-right"
+          fill="none"
+          height="24"
+          stroke="currentColor"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          viewBox="0 0 24 24"
+          width="24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <polyline
+            points="9 18 15 12 9 6"
+          />
+        </svg>
+      </button>
+    </div>
+  </div>
+</body>
+`;

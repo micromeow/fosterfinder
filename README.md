@@ -1,28 +1,65 @@
-# Create T3 App
+# Foster Finder
 
-This is a [T3 Stack](https://create.t3.gg/) project bootstrapped with `create-t3-app`.
+Foster Finder is an innovative app connecting shelters and fosterers, facilitating the seamless listing and notification of critical care foster kittens in need.
 
-## What's next? How do I make an app with this?
+## Requirements
 
-We try to keep this project as simple as possible, so you can start with just the scaffolding we set up for you, and add additional things later when they become necessary.
+- Node.js
+- npm
+- Docker
 
-If you are not familiar with the different technologies used in this project, please refer to the respective docs. If you still are in the wind, please join our [Discord](https://t3.gg/discord) and ask for help.
+## Getting Started
 
-- [Next.js](https://nextjs.org)
-- [NextAuth.js](https://next-auth.js.org)
-- [Prisma](https://prisma.io)
-- [Tailwind CSS](https://tailwindcss.com)
-- [tRPC](https://trpc.io)
+1. Run the following command to install dependencies:
 
-## Learn More
+```bash
+npm install
+```
 
-To learn more about the [T3 Stack](https://create.t3.gg/), take a look at the following resources:
+2. Run the following command to start the database:
 
-- [Documentation](https://create.t3.gg/)
-- [Learn the T3 Stack](https://create.t3.gg/en/faq#what-learning-resources-are-currently-available) — Check out these awesome tutorials
+```bash
+npm run db:start
+```
 
-You can check out the [create-t3-app GitHub repository](https://github.com/t3-oss/create-t3-app) — your feedback and contributions are welcome!
+3. Run the following command to run database migrations and seed data:
 
-## How do I deploy this?
+```bash
+npm run db:reset
+```
 
-Follow our deployment guides for [Vercel](https://create.t3.gg/en/deployment/vercel), [Netlify](https://create.t3.gg/en/deployment/netlify) and [Docker](https://create.t3.gg/en/deployment/docker) for more information.
+4. Run the development server:
+
+```bash
+npm run dev
+```
+
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+
+## Tests
+
+To run tests, run the following command:
+
+```bash
+npm run test
+```
+
+Tests also run automatically pre-commit.
+
+### UI Tests
+
+We use snapshot testing for our UI components. These tests will fail if the UI changes.
+To update snapshots, double check that the UI changes are intended and then
+run the following command:
+
+```bash
+npm run test:update
+```
+
+## Developer Tools
+
+See [docs/devtools.md](./docs/devtools.md)
+
+## Architectural Decision Records
+
+See [docs/adr/README.md](./docs/adr/README.md)

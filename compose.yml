@@ -1,0 +1,13 @@
+version: "3"
+services:
+  postgres:
+    image: postgres:latest
+    container_name: fosterfinder_postgres
+    ports:
+      - "6600:5432"
+    volumes:
+      - postgresDB:/var/lib/postgresql/data
+    env_file:
+      - ./.env
+volumes:
+  postgresDB:

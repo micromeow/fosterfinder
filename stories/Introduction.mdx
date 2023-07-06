@@ -1,0 +1,31 @@
+{/* Introduction.mdx */}
+
+import { Meta, Source } from "@storybook/blocks";
+
+<Meta label="Introduction" />
+
+<h1>Introduction</h1>
+<h2>READ ME BEFORE DOING ANYTHING</h2>
+<p>
+  This is the introduction to the component library for Foster Finder. It is built on
+  the <a href="https://ui.shadcn.com/">shadcn/ui</a> component library, an open
+  sourced component library built on{" "}
+  <a href="https://tailwindcss.com">tailwindcss</a>.
+</p>
+
+<h2>Installing New Components from `shadcn`</h2>
+<p>
+  shadcn uses a "need-to-have" approach to adding new components. If you need to
+  use a component that has not been installed in the `components/ui` directory,
+  follow these steps to install it with the correct configuration.
+</p>
+
+1 - Install the component using the following command:
+
+<Source code={`npx shadcn-ui@latest add <component-name>`} />
+
+2 - <b>IMPORTANT</b>: Rename the generated component to use PascalCase. For example, if you are adding the component `button`, rename the component to `Button`.
+
+3 - Generate stories and tests for the component using the following command:
+
+<Source code={`npm run codegen`} />
