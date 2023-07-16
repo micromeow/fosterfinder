@@ -1,9 +1,10 @@
+import { withErrorHandling } from '@/lib/api/with-error-handling';
 import { authOptions } from '@/lib/auth/next-auth-config';
 import { prisma } from '@/lib/prisma';
 import { getServerSession } from 'next-auth';
 import { NextRequest, NextResponse } from 'next/server';
 
-export async function POST(req: NextRequest) {
+export const POST = withErrorHandling(async (req: NextRequest) => {
   try {
     const session = await getServerSession(authOptions);
 
@@ -44,4 +45,4 @@ export async function POST(req: NextRequest) {
       { status: 500 }
     );
   }
-}
+});
