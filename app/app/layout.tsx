@@ -16,6 +16,12 @@ export default async function AppLayout({ children }: { children: ReactNode }) {
         </div>
         <div className="flex flex-row gap-1 items-center font-medium">
           <Icons.user className="h-5 w-5" />@{user?.username}
+          <Link
+            href="/app/update-profile"
+            className="mr-3 flex flex-row gap-1 font-semibold"
+          >
+            <Icons.settings className="h-5 w-5" />
+          </Link>
         </div>
       </div>
       {children}

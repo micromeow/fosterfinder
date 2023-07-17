@@ -1,7 +1,7 @@
 'use client';
 
 import * as z from 'zod';
-import { Button } from '../ui/Button';
+import { Button } from './Button';
 import {
   Form,
   FormField,
@@ -10,74 +10,36 @@ import {
   FormControl,
   FormDescription,
   FormMessage,
-} from '../ui/Form';
+} from './Form';
 import { Icons } from '../icons';
-import { Input } from '../ui/Input';
-import { signIn } from 'next-auth/react';
-import { useForm } from 'react-hook-form';
-import { useState } from 'react';
-import { zodResolver } from '@hookform/resolvers/zod';
-
-const formSchema = z.object({
-  name: z
-    .string()
-    .min(2, {
-      message: 'Name must be at least 2 characters',
-    })
-    .max(50, {
-      message: 'Name must be at most 50 characters.',
-    }),
-  username: z
-    .string()
-    .min(10, {
-      message: 'Username must be at least 10 characters.',
-    })
-    .max(50, {
-      message: 'Username must be at most 50 characters.',
-    }),
-});
+import { Input } from './Input';
+import userDetailsFormSchema from '@/lib/zod-schema/user-details.schema';
+import { UseFormReturn } from 'react-hook-form';
 
 type Props = {
   email: string;
+  onSubmit: (
+    formValues: z.infer<typeof userDetailsFormSchema>
+  ) => Promise<void>;
+  loading: boolean;
+  form: UseFormReturn<
+    {
+      name: string;
+      username: string;
+    },
+    any,
+    undefined
+  >;
+  submitText?: string;
 };
 
-function RegistrationForm({ email }: Props) {
-  let [loading, setLoading] = useState(false);
-
-  const form = useForm<z.infer<typeof formSchema>>({
-    resolver: zodResolver(formSchema),
-    defaultValues: {
-      name: '',
-      username: '',
-    },
-  });
-
-  const onSubmit = async (formValues: z.infer<typeof formSchema>) => {
-    setLoading(true);
-
-    try {
-      const res = await fetch('/api/register', {
-        method: 'POST',
-        body: JSON.stringify({ email: email, ...formValues }),
-        headers: {
-          'Content-Type': 'application/json',
-        },
-      });
-
-      setLoading(false);
-      if (!res.ok) {
-        alert((await res.json()).message);
-        return;
-      }
-
-      signIn(undefined, { callbackUrl: '/' });
-    } catch (error: any) {
-      setLoading(false);
-      console.error(error);
-      alert(error.message);
-    }
-  };
-
+export function UserDetailsForm({
+  email,
+  form,
+  loading,
+  onSubmit,
+  submitText = 'Sign Up',
+}: Props) {
   return (
     <Form {...form}>
       <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
@@ -87,7 +49,7 @@ function RegistrationForm({ email }: Props) {
             <Input disabled placeholder={email} />
           </FormControl>
           <FormDescription>
-            This is the email you are using to register.
+            This is the email associated to your account.
           </FormDescription>
           <FormMessage />
         </FormItem>
@@ -132,11 +94,9 @@ function RegistrationForm({ email }: Props) {
           ) : (
             <Icons.media className="mr-2 h-4 w-4" />
           )}{' '}
-          Sign Up
+          {submitText}
         </Button>
       </form>
     </Form>
   );
 }
-
-export default RegistrationForm;

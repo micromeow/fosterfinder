@@ -5,6 +5,9 @@ import { withThemeByClassName } from '@storybook/addon-styling';
 /* TODO: update import to your tailwind styles file */
 import '../app/globals.css';
 
+import { Toaster } from '../components/ui/Toaster';
+import React from 'react';
+
 const preview: Preview = {
   parameters: {
     actions: { argTypesRegex: '^on[A-Z].*' },
@@ -26,6 +29,13 @@ const preview: Preview = {
       },
       defaultTheme: 'light',
     }),
+    (Story) => (
+      <>
+        {/* 👇 Decorators in Storybook also accept a function. Replace <Story/> with Story() to enable it  */}
+        {Story()}
+        <Toaster />
+      </>
+    ),
   ],
 };
 
