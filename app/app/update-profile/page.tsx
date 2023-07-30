@@ -1,4 +1,4 @@
-import RegistrationForm from '@/components/forms/RegistrationForm';
+import UpdateUserForm from '@/components/forms/UpdateUserForm';
 import { getUser } from '@/lib/queries/get-user';
 
 export default async function RegistrationPage() {
@@ -8,7 +8,7 @@ export default async function RegistrationPage() {
 
   return (
     <div className="container relative grid h-screen w-screen flex-col items-center justify-center">
-      <RegistrationForm email={user.email} />
+      <UpdateUserForm user={user} />
     </div>
   );
 }

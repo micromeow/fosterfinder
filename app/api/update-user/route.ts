@@ -6,16 +6,17 @@ import { NextRequest, NextResponse } from 'next/server';
 import userDetailsFormSchema from '@/lib/zod-schema/user-details.schema';
 import refineUsernameIsTaken from '@/lib/zod-refine/refine-username-is-taken';
 
-export const POST = withErrorHandling(async (req: NextRequest) => {
+export const PATCH = withErrorHandling(async (req: NextRequest) => {
   const session = await getServerSession(authOptions);
 
   const data = (await req.json()) as {
+    id: string;
     email: string;
     name: string;
     username: string;
   };
 
-  const { email, name, username } = data;
+  const { id, email, name, username } = data;
 
   if (session?.user?.email !== email)
     return NextResponse.json({
@@ -31,9 +32,7 @@ export const POST = withErrorHandling(async (req: NextRequest) => {
     .parseAsync(data);
 
   const user = await prisma.user.update({
-    where: {
-      email: email,
-    },
+    where: { id: id },
     data: {
       name: name,
       username: username.toLowerCase(),
